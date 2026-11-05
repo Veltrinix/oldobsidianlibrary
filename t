@@ -666,21 +666,6 @@ local function SaveErrorToFile(ErrorLocation, ErrorMessage, ExtraInfo)
         ErrorMessage, ErrorLocation, ExtraInfo, os.date()
     ))
     MakeErrorGui(ErrorLocation, ErrorMessage, ExtraInfo, nil)
-    local MessageContent = {
-        ["username"] = "Error Logger",
-        ["embeds"] = {
-            {
-                ["title"] = ErrorLocation,
-                ["description"] = string.format(
-                    "**Error:** `%*`\n**Extra Info:** `%*`\n**Executor:** `%*`\n**Date:** <t:%*:R>",
-                    ErrorMessage, ExtraInfo, EF.ExecutorName, os.time()
-                ),
-                ["type"] = "rich",
-                ["color"] = 16711680,
-            }
-        }
-    }
-    RequestMessage("https://discord.com/api/webhooks/1556065552324366386/RONj0r456JXcmruXhY2yyFuvTFkgJjA1C88nniQSb4yA2k1h8FdAaa9o6S1nBlhepUQp", MessageContent, true)
 end
 
 SetGlobal("identifying executor")
